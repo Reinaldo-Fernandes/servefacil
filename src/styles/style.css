@@ -1,16 +1,114 @@
-/*Layout: Criar um layout claro e funcional. Use flexbox ou grid para organizar os itens, o menu e o pedido.
- _____________________________________________________________
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f8f9fa;
+}
+.container-fluid {
+    max-width: 1400px;
+}
+.card {
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn {
+    border-radius: 0.5rem; /* rounded-lg */
+}
+.table-card {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.table-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+.table-card.active {
+    border: 3px solid #0d6efd; /* Cor primária do Bootstrap */
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.table-card.occupied .card-header {
+    background-color: #dc3545; /* Cor vermelha para ocupado */
+    color: white;
+}
+.table-card.available .card-header {
+    background-color: #28a745; /* Cor verde para disponível */
+    color: white;
+}
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+}
+.menu-item:last-child {
+    border-bottom: none;
+}
+.order-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #eee;
+}
+.order-list-item:last-child {
+    border-bottom: none;
+}
+.scrollable-content {
+    max-height: calc(100vh - 250px); /* Ajuste conforme necessário */
+    overflow-y: auto;
+}
+/* Estilo para a mensagem de erro/sucesso */
+.message-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    padding: 15px 20px;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Escondido por padrão */
+}
+.message-box.show {
+    display: block;
+    animation: fadeInOut 3s forwards;
+}
+.message-box.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.message-box.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
 
-Menu e Itens: Estilizar o menu de forma que os itens fiquem bem distribuídos e sejam facilmente clicáveis.
- _____________________________________________________________
-
-Botões: Criar botões para adicionar itens ao pedido e para "finalizar o pedido", se for o caso.
-
- _____________________________________________________________
-Contagem de Total: Estilizar o total da conta de forma destacada, talvez com uma cor ou tamanho maior.
-
- _____________________________________________________________
-Notificações: Criar uma área de notificações para que o atendente veja alertas sobre pedidos novos ou alterações no pedido.
-
- _____________________________________________________________
-Responsividade: Certificar-se de que o layout se ajuste bem em diferentes tamanhos de tela (pode ser importante se você quiser que o app funcione em dispositivos móveis).*/
+/* Estilos para o modal de confirmação */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1060;
+}
+.modal-overlay.hidden {
+    display: none;
+}
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+}
