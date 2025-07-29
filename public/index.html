@@ -3,83 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de Mesas</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tailwind CSS (para utilitários adicionais e arredondamento) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <title>Ferramenta De Estratégias</title>
 </head>
 <body>
-    <div class="container-fluid p-4">
-        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Gerenciador de Atendimento de Mesas</h1>
-        <p class="text-center text-sm text-gray-600 mb-4">ID do Usuário: <span id="userIdDisplay" class="font-mono bg-gray-200 px-2 py-1 rounded-md">Carregando...</span></p>
+    
+    <header>
+        
+        <h1>Ferramenta De Estratégias </h1> 
+        
+        <nav class="menu">
+            <ul class="menu-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="#precos">Preços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="row g-4">
-            <!-- Coluna de Mesas -->
-            <div class="col-lg-4">
-                <div class="card h-full">
-                    <div class="card-header bg-primary text-white text-xl font-semibold rounded-t-xl py-3 px-4">Mesas</div>
-                    <div class="card-body scrollable-content p-4" id="tables-container">
-                        <!-- Mesas serão carregadas aqui pelo JS -->
-                    </div>
-                </div>
-            </div>
+    <section id="home" class="hero-section">
+        <h2>Bem-vindo à Sua Ferramenta de Análise e Estratégia!</h2>
+        <p>A página tem como objetivo ajudar você a interpretar demonstrativos de marketing digital e a criar estratégias eficazes, seja você um criador de conteúdo, profissional de marketing ou de vendas.</p>
+        <p>Aqui você encontrará **explicações detalhadas sobre demonstrativos, relatórios e estratégias** de marketing e vendas aplicáveis ao seu negócio.</p>
+        <p>Além disso, descubra informações valiosas sobre **público-alvo e os benefícios** de cada abordagem para maximizar seus resultados.</p>
+        <p>Se você busca maneiras de **melhorar suas vendas e otimizar suas estratégias de marketing**, este é o lugar certo para você!</p>
+        <p>Navegue pelo site e descubra como podemos ajudar você a alcançar seus objetivos!</p>
+        </section>
 
-            <!-- Coluna de Menu -->
-            <div class="col-lg-4">
-                <div class="card h-full">
-                    <div class="card-header bg-success text-white text-xl font-semibold rounded-t-xl py-3 px-4">Menu</div>
-                    <div class="card-body scrollable-content p-4">
-                        <div id="menu-list">
-                            <!-- Itens do menu serão carregados aqui pelo JS -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Coluna de Pedido e Resumo -->
-            <div class="col-lg-4">
-                <div class="card h-full">
-                    <div class="card-header bg-info text-white text-xl font-semibold rounded-t-xl py-3 px-4">Pedido da Mesa <span id="current-table-id">N/A</span></div>
-                    <div class="card-body d-flex flex-column p-4">
-                        <div class="scrollable-content flex-grow-1 mb-3">
-                            <ul class="list-unstyled" id="order-list">
-                                <!-- Itens do pedido serão carregados aqui pelo JS -->
-                            </ul>
-                        </div>
-                        <div class="mt-auto pt-3 border-t border-gray-200">
-                            <h4 class="text-lg font-bold mb-3">Total: R$ <span id="order-total">0.00</span></h4>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-primary btn-lg" id="add-to-order-btn" disabled>Adicionar ao Pedido</button>
-                                <button class="btn btn-danger btn-lg" id="clear-order-btn" disabled>Limpar Pedido</button>
-                                <button class="btn btn-success btn-lg" id="checkout-btn" disabled>Fechar Conta</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="funcionalidades" class="features-section">
+        <h2>Principais Funcionalidades</h2>
+        <p>Explore como nossa ferramenta pode transformar suas análises e estratégias:</p>
+        
+        <div class="feature-card">
+            <h3>📊 Análise de Métricas</h3>
+            <p>Monitore engajamento, alcance, cliques, seguidores, CTR e muito mais para entender o desempenho do seu conteúdo.</p>
         </div>
-    </div>
-
-    <!-- Message Box -->
-    <div id="message-box" class="message-box"></div>
-
-    <!-- Custom Confirmation Modal -->
-    <div id="confirmation-modal" class="modal-overlay hidden">
-        <div class="modal-content card rounded-xl p-4">
-            <p id="confirmation-message" class="text-lg mb-4"></p>
-            <div class="d-flex justify-content-end gap-2">
-                <button id="confirm-no" class="btn btn-secondary">Não</button>
-                <button id="confirm-yes" class="btn btn-primary">Sim</button>
-            </div>
+        
+        <div class="feature-card">
+            <h3>💬 Escuta Social</h3>
+            <p>Acompanhe menções à sua marca, hashtags relevantes e o sentimento (positivo/negativo) do seu público nas redes sociais.</p>
         </div>
-    </div>
 
-    <!-- Bootstrap JS Bundle (Popper incluído) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JavaScript -->
-    <script type="module" src="script.js"></script>
+        <div class="feature-card">
+            <h3>👥 Influenciadores</h3>
+            <p>Identifique e analise perfis de influenciadores, verificando taxas de engajamento e autenticidade dos seguidores.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🕵️‍♀️ Concorrência</h3>
+            <p>Compare seu desempenho com o de marcas similares e descubra novas oportunidades no mercado.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📈 Relatórios Personalizados</h3>
+            <p>Gere dashboards intuitivos com exportação de dados, facilitando a tomada de decisões estratégicas.</p>
+        </div>
+
+        </section>
+
+    <section id="precos" class="pricing-section">
+        <h2>Escolha o Plano Ideal Para Você</h2>
+        </section>
+
+    <section id="contato" class="contact-section">
+        <h2>Fale Conosco</h2>
+        <p>Tem alguma dúvida ou quer saber mais? Entre em contato!</p>
+        </section>
+
+    <footer>
+        <p>&copy; 2024 Nome da Sua Ferramenta. Todos os direitos reservados.</p>
+        <p>Email: seuemail@example.com</p>
+        <p>Telefone: (XX) XXXX-XXXX</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <nav class="footer-nav">
+        
+        <!--<img src="/src/img/logo.png" alt="Logo da Ferramenta De Estratég>ias" class="logo"> -->
+            <ul>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script type="module" src="/src/controllers/script.js"></script>
 </body>
 </html>
